@@ -6,7 +6,7 @@
 
 #define EPSILON 0.000001
 
-float quadro(double a, double b, double c, double *x1, double *x2, int *solutionNo)
+void quadro(double a, double b, double c, double *x1, double *x2, int *solutionNo)
 {
     /* ax^2 + bx + c = 0 - a, b, c - коэф., переданные пользователем*/
     double D;
@@ -19,7 +19,7 @@ float quadro(double a, double b, double c, double *x1, double *x2, int *solution
         {
             *solutionNo = 3;
         }
-    else if ( a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) > EPSILON )
+    else if ( (a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) > EPSILON )
         {
             *solutionNo = 0;
         }
@@ -42,7 +42,6 @@ float quadro(double a, double b, double c, double *x1, double *x2, int *solution
             *solutionNo = 0;
         }
         }
-    return 0;
 }
 
 int main()
