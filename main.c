@@ -11,20 +11,20 @@ void quadro(double a, double b, double c, double *x1, double *x2, int *solutionN
     /* ax^2 + bx + c = 0 - a, b, c - коэф., переданные пользователем*/
     double D;
     if ((a - 0) < EPSILON && (b - 0) > EPSILON && (c - 0) > EPSILON)
-        {
+    {
             *x1 = -c / b;
             *solutionNo = 1;
-        }
+    }
     else if ( (a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) < EPSILON )
-        {
+    {
             *solutionNo = 3;
-        }
+    }
     else if ( (a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) > EPSILON )
-        {
+    {
             *solutionNo = 0;
-        }
+    }
     else
-        {
+    {
         D = b * b - 4 * a * c;
         if (D > 0)
         {
@@ -41,7 +41,7 @@ void quadro(double a, double b, double c, double *x1, double *x2, int *solutionN
         {
             *solutionNo = 0;
         }
-        }
+    }
 }
 
 int main()
@@ -51,20 +51,20 @@ int main()
     scanf("%lf %lf %lf", &a, &b, &c);
     quadro(a,b,c, &x1, &x2, &solutionNo);
     if (solutionNo == 0)
-        {
+    {
         printf("the equation hasn't roots");
-        }
+    }
     else if (solutionNo == 1)
-        {
+    {
         printf("the equation has one root: %.2f", x1);
-        }
+    }
     else if (solutionNo == 2)
-        {
+    {
         printf("the equation has two roots: %.2f %.2f", x1, x2);
-        }
+    }
     else
-        {
+    {
         printf("the equation has infinity many roots");
-        }
+    }
     return 0;
 }
