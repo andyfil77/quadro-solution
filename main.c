@@ -52,20 +52,20 @@ int main()
     scanf("%lf %lf %lf", &a, &b, &c);
     quadro(a,b,c, &x1, &x2, &solutionNo);
     if (solutionNo == 0)
-    {
+        {
         printf("the equation hasn't roots");
-    }
+        }
     else if (solutionNo == 1)
-    {
+        {
         printf("the equation has one root: %.2f", x1);
-    }
+        }
     else if (solutionNo == 2)
-    {
+        {
         printf("the equation has two roots: %.2f %.2f", x1, x2);
-    }
+        }
     else
-    {
+        {
         printf("the equation has infinity many roots");
-    }
+        }
     return 0;
 }
