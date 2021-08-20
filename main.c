@@ -8,14 +8,14 @@
 
 void quadro(double a, double b, double c, double *x1, double *x2, int *solutionNo)
 {
-    /* ax^2 + bx + c = 0 - a, b, c - коэф., переданные пользователем*/
-    double D;
-    if ((a - 0) < EPSILON && (b - 0) > EPSILON && (c - 0) > EPSILON)
+    /* ax^2 + bx + c = 0 - a, b, c are the coefficients of the quadratic equation*/
+    double D = 0;
+    if ((a - 0) < EPSILON && (b - 0) > EPSILON && (c - 0) > EPSILON)  /*in order to avoid any problems with errors, we take a very small number of epsilon constants*/
     {
             *x1 = -c / b;
             *solutionNo = 1;
     }
-    else if ( (a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) < EPSILON )
+    else if ( (a - 0) < EPSILON && (b - 0) < EPSILON && (c - 0) < EPSILON ) /*in the part up to main, we will consider all possible cases with a discriminant, and coefficients*/
     {
             *solutionNo = 3;
     }
@@ -50,7 +50,7 @@ int main()
     double x1, x2, a, b, c;
     scanf("%lf %lf %lf", &a, &b, &c);
     quadro(a,b,c, &x1, &x2, &solutionNo);
-    switch (solutionNo)
+    switch (solutionNo) /*let's determine what is the number of roots of the equation*/
     {
         case 0: printf("the equation hasn't roots\n"); break;
         case 1: printf("the equation has one root: %.2f\n", x1); break;
