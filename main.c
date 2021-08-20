@@ -50,21 +50,13 @@ int main()
     double x1, x2, a, b, c;
     scanf("%lf %lf %lf", &a, &b, &c);
     quadro(a,b,c, &x1, &x2, &solutionNo);
-    if (solutionNo == 0)
+    switch (solutionNo)
     {
-        printf("the equation hasn't roots");
-    }
-    else if (solutionNo == 1)
-    {
-        printf("the equation has one root: %.2f", x1);
-    }
-    else if (solutionNo == 2)
-    {
-        printf("the equation has two roots: %.2f %.2f", x1, x2);
-    }
-    else
-    {
-        printf("the equation has infinity many roots");
+        case 0: printf("the equation hasn't roots\n"); break;
+        case 1: printf("the equation has one root: %.2f\n", x1); break;
+        case 2: printf("the equation has two roots:\n1)%.2f\n2)%.2f\n", x1, x2); break;
+        default: printf("the equation has infinity many roots\n"); break;
+
     }
     return 0;
 }
