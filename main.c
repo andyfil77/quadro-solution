@@ -65,6 +65,7 @@ int main()
     if (res < 3)
     {
         printf("you need to write double a,b,c\n");
+        return 0;
     }
     int solutionNo = quadro(a,b,c, &x1, &x2);
     switch (solutionNo) /*let's determine what is the number of roots of the equation*/
