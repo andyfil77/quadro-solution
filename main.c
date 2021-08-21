@@ -9,23 +9,28 @@
 #include <assert.h>
 
 #include <ctype.h>
+bool doub(double x)
+{
+    const double EPSILON = 0.000001;
+    return (fabs(x - 0) < EPSILON);
+}
 
-void quadro(double a, double b, double c, double *x1, double *x2, int *solutionNo)
+
+int quadro(double a, double b, double c, int solutionNo, double *x1, double *x2)
 {
     /* ax^2 + bx + c = 0 - a, b, c are the coefficients of the quadratic equation*/
-    double D = 0, EPSILON = 0.000001;
-    bool a1 = fabs(a - 0) < EPSILON, b1 = fabs(b - 0) < EPSILON, c1 = fabs(c - 0) < EPSILON;
-    if (a1 && !b1 && !c1)  /*in order to avoid any problems with errors, we take a very small number of epsilon constants*/
+    double D = 0;
+    if (doub(a) && !(b) && !doub(c))  /*in order to avoid any problems with errors, we take a very small number of epsilon constants*/
     {
-            *solutionNo = 4;
+            solutionNo = 4;
     }
-    else if (a1 && b1 && c1) /*in the part up to main, we will consider all possible cases with a discriminant, and coefficients*/
+    else if (doub(a) && doub(b) && doub(c)) /*in the part up to main, we will consider all possible cases with a discriminant, and coefficients*/
     {
-            *solutionNo = 3;
+            solutionNo = 3;
     }
-    else if (a1 && b1 && !c1)
+    else if (doub(a) && doub(b) && !doub(c))
     {
-            *solutionNo = 0;
+            solutionNo = 0;
     }
     else
     {
@@ -34,7 +39,7 @@ void quadro(double a, double b, double c, double *x1, double *x2, int *solutionN
         {
             *x1 = (-b + sqrt(D)) / (2 * a);
 			*x2 = (-b - sqrt(D)) / (2 * a);
-			*solutionNo = 2;
+			solutionNo = 2;
         }
         else if (D == 0)
         {
@@ -43,13 +48,14 @@ void quadro(double a, double b, double c, double *x1, double *x2, int *solutionN
             {
                 *x1 = abs(*x1);
             }
-            *solutionNo = 1;
+            solutionNo = 1;
         }
         else
         {
-            *solutionNo = 0;
+            solutionNo = 0;
         }
     }
+    return solutionNo;
 }
 
 int main()
@@ -63,7 +69,7 @@ int main()
     }
     else
     {
-        quadro(a,b,c, &x1, &x2, &solutionNo);
+        solutionNo = quadro(a,b,c, solutionNo, &x1, &x2);
     }
     switch (solutionNo) /*let's determine what is the number of roots of the equation*/
     {
