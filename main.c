@@ -6,9 +6,8 @@
 
 #include <stdbool.h>
 
-#include <assert.h>
-
 #include <ctype.h>
+
 bool doub(double x)
 {
     const double EPSILON = 0.000001;
