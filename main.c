@@ -8,16 +8,17 @@
 
 #include <ctype.h>
 
+const double EPSILON = 0.000001;
+
 bool doub(double x)
 {
-    const double EPSILON = 0.000001;
     return (fabs(x - 0) < EPSILON);
 }
 
-
-int quadro(double a, double b, double c, int solutionNo, double *x1, double *x2)
+int quadro(double a, double b, double c, double *x1, double *x2)
 {
     /* ax^2 + bx + c = 0 - a, b, c are the coefficients of the quadratic equation*/
+    int solutionNo = -1;
     double D = 0;
     if (doub(a) && !(b) && !doub(c))  /*in order to avoid any problems with errors, we take a very small number of epsilon constants*/
     {
@@ -59,17 +60,13 @@ int quadro(double a, double b, double c, int solutionNo, double *x1, double *x2)
 
 int main()
 {
-    int solutionNo;
     double x1, x2, a, b, c;
     int res = scanf("%lf %lf %lf", &a, &b, &c);
     if (res < 3)
     {
         printf("you need to write double a,b,c\n");
     }
-    else
-    {
-        solutionNo = quadro(a,b,c, solutionNo, &x1, &x2);
-    }
+    int solutionNo = quadro(a,b,c, &x1, &x2);
     switch (solutionNo) /*let's determine what is the number of roots of the equation*/
     {
         case 0:
