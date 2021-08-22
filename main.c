@@ -60,7 +60,24 @@ int quadro(double a, double b, double c, double *x1, double *x2)
 
 int main()
 {
-    double x1, x2, a, b, c;
+    double x1 = -17.00, x2 = -17.00, a, b, c;
+    printf("1 - test your programm\nelse - a, b, c\n");
+    int testing = 0;
+    scanf("%d", &testing);
+    if (testing == 1)
+    {
+        bool res = check_result();
+        if (res)
+        {
+            printf("OK");
+        }
+        else
+        {
+            printf("NOT OK");
+        }
+    }
+    else
+    {
     int res = scanf("%lf %lf %lf", &a, &b, &c);
     if (res < 3)
     {
@@ -90,4 +107,5 @@ int main()
             break;
     }
     return 0;
+    }
 }
