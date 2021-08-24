@@ -8,6 +8,8 @@
 
 #include <ctype.h>
 
+#include <test.h>
+
 const double EPSILON = 0.000001;
 
 bool doub(double x)
