@@ -6,9 +6,9 @@ ___The program is written in a programming language C___.
   * Solving integrals
   * Solving cubic equations (equations of higher degrees)
   * Graphical interpretation of the equation
-###_Why my program?_
+### _Why my program?_
 __My program is written clearly, there are no errors, there is protection from incomprehensible input data.__
-####_Testing program_
+#### _Testing program_
 The program has a __testing program__ that checks its performance on _4 complex tests_. Before using the program, you must show the program exactly what you are going to do: 1 - a _test_, any other input data - solve a _quadratic equation_.
 
 
